@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<title>بروفايلك | Quickfo</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #89ef11;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* زر الترجمة */
+ .translate-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .translate-btn:hover {
+    background: #25d366;
+    color: #fff;
+  }
+
+  .container {
+    padding: 20px;
+    max-width: 800px;
+  }
+
+  .logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .form-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+    margin: 40px auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+  }
+
+  button {
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background: #20b954;
+  }
+
+  .checkbox-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .checkbox-label {
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .checkbox-label input {
+    display: none;
+  }
+
+  .checkbox-label.active {
+    background: #25d366;
+    color: #fff;
+  }
+
+  .team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .member {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 20px;
+    width: 220px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+
+  .member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+
+  .member h3 {
+    margin: 10px 0 5px;
+  }
+
+  .member p {
+    font-size: 14px;
+  }
+  
+  /* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95%;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    text-align: center;
+  }
+    .checkbox-label {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+    input, textarea, button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .form-box {
+    padding: 20px;
+  }
+
+  .form-box {
+    width: 100%;
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .checkbox-label {
+    width: 100%;
+    text-align: center;
+  }
+
+  .team {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .member {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 18px;
+  }
+  .checkbox-label {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+   input, textarea, button {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 60px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  button, .translate-btn {
+    font-size: 14px;
+  }
+
+  .translate-btn {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .member img {
+    width: 80px;
+    height: 80px;
+  }
+
+  input, textarea {
+    font-size: 14px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- زر الترجمة -->
+<button class="translate-btn" onclick="toggleLang()">FR</button>
+
+<div class="container">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <h1 id="title">مرحباً بك في منصتنا</h1>
+  <p id="desc">💪 مع فريقنا من الكوتشات المتخصصين في اللياقة البدنية، الكاليثينيكس وكمال الأجسام، تقدر تختار المدرب اللي يناسبك وتحجز حصتك في أي وقت و أي مكان يناسبك.
+📲 كلشي ساهل وبسرعة عبر واتساب!</p>
+
+  <!-- Form -->
+  <div class="form-box">
+    <h2 id="form-title">احجز حصتك الآن</h2>
+    <div class="checkbox-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="type" value="اللياقة البدنية"> <span id="opt1">اللياقة البدنية</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" name="type" value="الكاليثينيكس"> <span id="opt2">الكاليثينيكس</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" name="type" value="كمال الأجسام"> <span id="opt3">كمال الأجسام</span>
+      </label>
+    </div>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="الاسم" required>
+      <input type="email" id="email" placeholder="الإيميل" required>
+      <textarea id="message" placeholder="رسالتك" required></textarea>
+      <textarea id="lblassa" placeholder="اكتب مكانك" required></textarea>
+
+      <label for="date" id="date-label">اختر موعد الحصة:</label>
+      <input type="datetime-local" id="date" required>
+
+      <button type="submit" id="submit-btn">إرسال عبر واتساب</button>
+    </form>
+  </div>
+
+  <!-- Team Section -->
+<!--  <h2 id="team-title">تعرف على فريقنا</h2>
+  <div class="team">
+    <div class="member">
+      <img src="Background (4).png" alt="Coach 1">
+      <h3>Saad-Allah</h3>
+      <p id="coach1">مدرب لياقة بدنية بخبرة 5 سنوات في التدريب الشخصي.</p>
+    </div>
+    <div class="member">
+      <img src="Background (4).png" alt="Coach 2">
+      <h3>Ezzahidi</h3>
+      <p id="coach2">متخصصة في التغذية الصحية والتوازن الغذائي.</p>
+    </div>
+    <div class="member">
+      <img src="Background (4).png" alt="Coach 3">
+      <h3>Ourami</h3>
+      <p id="coach3">مدرب حياة (Life Coach) يساعدك على اكتشاف قدراتك.</p>
+    </div>
+  </div>
+</div> -->
+
+<script>
+
+document.querySelectorAll(".checkbox-label input").forEach(input => { input.addEventListener("change", function() { if (this.checked) { this.parentElement.classList.add("active"); } else { this.parentElement.classList.remove("active"); } }); });
+
+  // النصوص بالعربية و الفرنسية
+  const texts = {
+    ar: {
+      title: "مرحباً بك في منصتنا",
+      desc: "💪 مع فريقنا من الكوتشات المتخصصين في اللياقة البدنية، الكاليثينيكس وكمال الأجسام، تقدر تختار المدرب اللي يناسبك وتحجز حصتك في أي وقت و أي مكان يناسبك.\n📲 كلشي ساهل وبسرعة عبر واتساب!",
+      formTitle: "احجز حصتك الآن",
+      opt1: "اللياقة البدنية",
+      opt2: "الكاليثينيكس",
+      opt3: "كمال الأجسام",
+      dateLabel: "اختر موعد الحصة:",
+      submit: "إرسال عبر واتساب",
+      teamTitle: "تعرف على فريقنا",
+      coach1: "مدرب لياقة بدنية بخبرة 5 سنوات في التدريب الشخصي.",
+      coach2: "متخصصة في التغذية الصحية والتوازن الغذائي.",
+      coach3: "مدرب حياة (Life Coach) يساعدك على اكتشاف قدراتك.",
+      whatsappText: (name,email,message,lblassa,date,typesText) =>
+        `سلام، اسمي ${name}%0Aإيميلي: ${email}%0Aرسالتي: ${message}%0A📍 مكاني: ${lblassa}%0A🗓️ الموعد: ${date}%0A💪 التخصص: ${typesText}`
+    },
+    fr: {
+      title: "Bienvenue sur notre plateforme",
+      desc: "💪 Avec notre équipe de coachs spécialisés en fitness, calisthénics et musculation, tu peux choisir ton entraîneur et réserver ta séance à tout moment et en tout lieu.\n📲 Tout est simple et rapide via WhatsApp !",
+      formTitle: "Réservez votre séance maintenant",
+      opt1: "Fitness",
+      opt2: "Calisthénics",
+      opt3: "Musculation",
+      dateLabel: "Choisissez la date de la séance :",
+      submit: "Envoyer via WhatsApp",
+      teamTitle: "Découvrez notre équipe",
+      coach1: "Coach fitness avec 5 ans d’expérience en entraînement personnel.",
+      coach2: "Spécialiste en nutrition saine et équilibre alimentaire.",
+      coach3: "Life Coach qui vous aide à découvrir vos capacités.",
+      whatsappText: (name,email,message,lblassa,date,typesText) =>
+        `Bonjour, je m'appelle ${name}%0AMon email: ${email}%0AMon message: ${message}%0A📍 Ma position: ${lblassa}%0A🗓️ Date: ${date}%0A💪 Discipline: ${typesText}`
+    }
+  };
+
+  let currentLang = "ar";
+
+  function toggleLang() {
+    currentLang = currentLang === "ar" ? "fr" : "ar";
+    document.querySelector(".translate-btn").innerText = currentLang === "ar" ? "FR" : "AR";
+    
+    document.getElementById("title").innerText = texts[currentLang].title;
+    document.getElementById("desc").innerText = texts[currentLang].desc;
+    document.getElementById("form-title").innerText = texts[currentLang].formTitle;
+    document.getElementById("opt1").innerText = texts[currentLang].opt1;
+    document.getElementById("opt2").innerText = texts[currentLang].opt2;
+    document.getElementById("opt3").innerText = texts[currentLang].opt3;
+    document.getElementById("date-label").innerText = texts[currentLang].dateLabel;
+    document.getElementById("submit-btn").innerText = texts[currentLang].submit;
+    document.getElementById("team-title").innerText = texts[currentLang].teamTitle;
+    document.getElementById("coach1").innerText = texts[currentLang].coach1;
+    document.getElementById("coach2").innerText = texts[currentLang].coach2;
+    document.getElementById("coach3").innerText = texts[currentLang].coach3;
+  }
+
+  // ✅ إرسال البيانات للواتساب
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    let lblassa = document.getElementById("lblassa").value;
+    let date = document.getElementById("date").value;
+
+    let selectedTypes = [];
+    document.querySelectorAll("input[name='type']:checked").forEach(cb => {
+      selectedTypes.push(cb.value);
+    });
+    let typesText = selectedTypes.length ? selectedTypes.join(", ") : "بدون اختيار";
+
+    let phone = "212652618870"; 
+    let text = texts[currentLang].whatsappText(name,email,message,lblassa,date,typesText);
+    let url = `https://wa.me/${phone}?text=${text}`;
+
+    window.open(url, "_blank");
+  });
+</script>
+</body>
+</html>
